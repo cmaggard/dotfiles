@@ -1,0 +1,25 @@
+[user]
+	name = Cody Maggard
+	email = codym@everfi.com
+[alias]
+	ci = commit
+	st = status
+	br = branch
+	re = remote
+	co = checkout
+  ap = add -p
+[core]
+	editor = vim
+  excludesfile = ~/.gitignore
+[color]
+	ui = true
+[push]
+  default = upstream
+[format]
+  pretty = oneline
+[branch]
+	autosetupmerge = always
+[github]
+  include = git_secure
+[heroku]
+	account = work
