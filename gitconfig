@@ -19,7 +19,7 @@
   pretty = oneline
 [branch]
 	autosetupmerge = always
-[github]
-  include = git_secure
+[include]
+  path = git_secure
 [heroku]
 	account = work
