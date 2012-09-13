@@ -1,6 +1,6 @@
 #!/bin/bash
 dotfiles="$HOME/.dotfiles"
-files="autotest gemrc gitconfig gitignore inputrc osx_specific powconfig rdebugrc rspec tmux.conf zshenv zshrc zshrc.zni"
+files="githelpers autotest gemrc gitconfig gitignore inputrc osx_specific powconfig rdebugrc rspec tmux.conf zshenv zshrc zshrc.zni"
 
 for file in $files; do
   rm $HOME/.$file
