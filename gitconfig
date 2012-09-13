@@ -1,25 +1,65 @@
 [user]
 	name = Cody Maggard
 	email = codym@everfi.com
+[diff]
 [alias]
-	ci = commit
 	st = status
+	ci = commit
+	co = checkout
+  di = diff
+  dc = diff --cached
+  ds = diff --staged # synonym of above
+  amend = commit --amend
+  aa = add --all
+  ff = merge --ff-only
+  pullff = pull --ff-only
+  noff = merge --no-ff
+  fa = fetch --all
 	br = branch
 	re = remote
-	co = checkout
-  ap = add -p
+  ds = diff --stat=160,120
+  dh1 = diff HEAD~1
+  pb = !git push origin `git symbolic-ref --short HEAD`
+  mrca = merge-base
+
+  # Divergence (commits we added & commits remote added)
+  div = divergence
+
+  # Goodness (sumamry of diff lines added/removed/total)
+  #gn = goodness
+  #gnc = goodness --cached
+
+  # Fancy logging
+  head = !git l -1
+  hp = "!source ~/.githelpers && show_git_head"
+  r = !git l -30
+  ra = !git r --all
+  l = "!source ~/.githelpers && pretty_git_log"
+  la = !git l --all
+
 [core]
 	editor = vim
   excludesfile = ~/.gitignore
+  includes = true
 [color]
-	ui = true
+	ui = auto
 [push]
   default = upstream
 [format]
   pretty = oneline
 [branch]
 	autosetupmerge = always
+[merge]
+  tool = vimdiff
 [include]
   path = git_secure
 [heroku]
 	account = work
+[github]
+	user = cody.maggard@gmail.com
+[url "git://github.com/"]
+  insteadOf = "gh"
+[url "git@github.com:"]
+  insteadOf = "wgh"
+[url "git@heroku.com:"]
+  insteadOf = "heroku"
