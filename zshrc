@@ -29,13 +29,14 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github rails3 rbenv brew heroku osx pow ruby)
+plugins=(git rails3 rbenv brew heroku osx pow ruby)
 
+zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
 # Customize to your needs...
-export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/share/python:/Users/cmaggard/.rbenv/shims:$HOME/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/share/python:/Users/cmaggard/.rbenv/shims:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 eval "$(rbenv init - zsh)"
 
@@ -46,10 +47,17 @@ alias start="rails server --debugger"
 alias cuke="cucumber"
 alias hcp="heroku run console --remote production"
 alias hcs="heroku run console --remote staging"
+alias vim="mvim -v"
+alias vimdiff="mvim -dv"
+alias gems="yard server --gems"
+
 
 source ~/.dotfiles/work
 source ~/.dotfiles/secure
 
 export SHELL=/usr/local/bin/zsh
-export EDITOR=/usr/local/bin/vim
+export EDITOR="/usr/local/bin/mvim -v"
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# Fix some zsh quirks and SED IS AWESOME
+alias sed="noglob sed"

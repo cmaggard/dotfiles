@@ -3,12 +3,13 @@
 	email = codym@everfi.com
 [diff]
 [alias]
-	st = status
+	st = status -sb
 	ci = commit
 	co = checkout
   di = diff
   dc = diff --cached
   ds = diff --staged # synonym of above
+  f = fetch
   amend = commit --amend
   aa = add --all
   ff = merge --ff-only
@@ -44,9 +45,7 @@
 [color]
 	ui = auto
 [push]
-  default = upstream
-[format]
-  pretty = oneline
+  default = tracking
 [branch]
 	autosetupmerge = always
 [merge]
@@ -58,8 +57,19 @@
 [github]
 	user = cody.maggard@gmail.com
 [url "git://github.com/"]
-  insteadOf = "gh"
+  insteadOf = "gh:"
 [url "git@github.com:"]
-  insteadOf = "wgh"
+  insteadOf = "wgh:"
 [url "git@heroku.com:"]
-  insteadOf = "heroku"
+  insteadOf = "h:"
+[http]
+	postBuffer = 524288000
+[advice]
+  pushNonFastForward = false
+  statusHints = false
+  commitBeforeMerge = false
+  resolveConflict = false
+  implicitIdentity = false
+  detachedHead = false
+[log]
+	date = local
