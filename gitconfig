@@ -2,13 +2,14 @@
 	name = Cody Maggard
 	email = codym@everfi.com
 [diff]
+  algorithm = patience
 [alias]
 	st = status -sb
 	ci = commit
 	co = checkout
-  di = diff
-  dc = diff --cached
-  ds = diff --staged # synonym of above
+  di = diff --ignore-space-change
+  dc = diff --cached --ignore-space-change
+  ds = diff --staged --ignore-space-change # synonym of above
   f = fetch
   amend = commit --amend
   aa = add --all
@@ -18,8 +19,8 @@
   fa = fetch --all
 	br = branch
 	re = remote
-  ds = diff --stat=160,120
-  dh1 = diff HEAD~1
+  ds = diff --stat=160,120 --ignore-space-change
+  dh1 = diff HEAD~1 --ignore-space-change
   pb = !git push origin `git symbolic-ref --short HEAD`
   mrca = merge-base
 
@@ -73,3 +74,7 @@
   detachedHead = false
 [log]
 	date = local
+[pretty]
+  history = "%H:\t%an\t(%ai)"
+[rerere]
+	enabled = true
