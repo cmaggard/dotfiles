@@ -37,8 +37,8 @@ unsetopt correct_all
 
 # Customize to your needs...
 # export GOROOT=/usr/local/Cellar/go/1.2rc4
-export GOVERSION=1.1.2
-export GOROOT=/usr/local/Cellar/go/$GOVERSION
+export GOVERSION=1.2
+export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
 export GOPATH=$HOME/.go/$GOVERSION
 
 export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:/usr/local/bin
@@ -58,8 +58,9 @@ alias vimdiff="mvim -dv"
 alias gems="yard server --gems"
 
 
-source ~/.dotfiles/work
-source ~/.dotfiles/secure
+[[ -s ~/.dotfiles/work ]] && source ~/.dotfiles/work
+[[ -s ~/.dotfiles/secure ]] && source ~/.dotfiles/secure
+[[ -s ~/.dotfiles/home ]] && source ~/.dotfiles/home
 
 export SHELL=/usr/local/bin/zsh
 export EDITOR="/usr/local/bin/mvim -v"
