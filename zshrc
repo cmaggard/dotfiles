@@ -29,9 +29,13 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rbenv brew heroku osx pow ruby)
+plugins=(rbenv git brew heroku osx pow ruby docker)
 
-zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+
+#zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+#zstyle ':completion:*:*:git:*' script /usr/local/etc/zsh/site-functions/_git/.git-completion.sh
+#fpath=(/usr/local/etc/zsh/site-functions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
@@ -56,7 +60,12 @@ alias hcs="heroku run console --remote staging"
 alias vim="mvim -v"
 alias vimdiff="mvim -dv"
 alias gems="yard server --gems"
+alias be="bundle exec"
+alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
 
+
+# the_silver_searcher has been replaced by the_platinum_searcher
+alias ag="pt"
 
 [[ -s ~/.dotfiles/work ]] && source ~/.dotfiles/work
 [[ -s ~/.dotfiles/secure ]] && source ~/.dotfiles/secure
@@ -71,5 +80,9 @@ alias sed="noglob sed"
 alias bower='noglob bower'
 
 export ANSIBLE_HOSTS=~/.ansible_hosts
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
+# Docker setup
+$(boot2docker shellinit)
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh

@@ -11,6 +11,7 @@
   dc = diff --cached --ignore-space-change
   ds = diff --staged --ignore-space-change # synonym of above
   f = fetch
+  cp = cherry-pick
   amend = commit --amend
   aa = add --all
   ff = merge --ff-only
@@ -23,6 +24,8 @@
   dh1 = diff HEAD~1 --ignore-space-change
   pb = !git push origin `git symbolic-ref --short HEAD`
   mrca = merge-base
+
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
   # Divergence (commits we added & commits remote added)
   div = divergence
@@ -38,15 +41,16 @@
   ra = !git r --all
   l = "!source ~/.githelpers && pretty_git_log"
   la = !git l --all
+	yup = pull
 
 [core]
-	editor = vim
+	editor = mvim -v
   excludesfile = ~/.gitignore
   includes = true
 [color]
 	ui = auto
 [push]
-  default = tracking
+	default = matching
 [branch]
 	autosetupmerge = always
 [merge]
