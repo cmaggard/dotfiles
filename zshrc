@@ -29,7 +29,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv git brew heroku osx pow ruby docker)
+plugins=(rbenv gitfast brew heroku osx pow ruby docker)
 
 
 #zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
@@ -39,30 +39,26 @@ plugins=(rbenv git brew heroku osx pow ruby docker)
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
-# Customize to your needs...
-# export GOROOT=/usr/local/Cellar/go/1.2rc4
-export GOVERSION=1.2
-export GOROOT=/usr/local/Cellar/go/$GOVERSION/libexec
-export GOPATH=$HOME/.go/$GOVERSION
 
-export PATH=$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/heroku/bin:$HOME/.rbenv/bin:/usr/local/bin
-export PATH=$PATH:/Users/cmaggard/.rbenv/shims:/usr/local/share/npm/bin
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - zsh)"
+
+export PATH="$PATH:/opt/yarn-[version]/bin"
+export PATH="$PATH:`yarn global bin`"
+
 
 export GIT_PS1_SHOWUPSTREAM="auto"
 
 alias r="rails"
 alias start="rails server --debugger"
 alias cuke="cucumber"
-alias hcp="heroku run console --remote production"
-alias hcs="heroku run console --remote staging"
 alias vim="mvim -v"
 alias vimdiff="mvim -dv"
-alias gems="yard server --gems"
 alias be="bundle exec"
 alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
-
 
 # the_silver_searcher has been replaced by the_platinum_searcher
 alias ag="pt"
@@ -78,11 +74,11 @@ export EDITOR="/usr/local/bin/mvim -v"
 # Fix some zsh quirks and SED IS AWESOME
 alias sed="noglob sed"
 alias bower='noglob bower'
+alias jq='noglob jq'
 
 export ANSIBLE_HOSTS=~/.ansible_hosts
 export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
-# Docker setup
-$(boot2docker shellinit)
-
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
