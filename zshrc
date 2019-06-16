@@ -53,12 +53,10 @@ export PATH="$PATH:`yarn global bin`"
 export GIT_PS1_SHOWUPSTREAM="auto"
 
 alias r="rails"
-alias start="rails server --debugger"
-alias cuke="cucumber"
 alias vim="mvim -v"
 alias vimdiff="mvim -dv"
 alias be="bundle exec"
-alias wget="curl -O --retry 999 --retry-max-time 0 -C -"
+alias dce="docker-compose exec"
 
 # the_silver_searcher has been replaced by the_platinum_searcher
 alias ag="pt"

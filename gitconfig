@@ -24,6 +24,7 @@
   dh1 = diff HEAD~1 --ignore-space-change
   pb = !git push origin `git symbolic-ref --short HEAD`
   mrca = merge-base
+  track = branch -u
 
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 

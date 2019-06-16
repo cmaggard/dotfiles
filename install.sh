@@ -6,3 +6,5 @@ for file in $files; do
   rm $HOME/.$file
   ln -s $dotfiles/$file $HOME/.$file
 done
+
+git clone https://github.com/gpakosz/.tmux $HOME/.tmux
